@@ -1,0 +1,22 @@
+2025-02-20 16:45:03,231 INFO    MainThread:3232892 [wandb_setup.py:_flush():68] Current SDK version is 0.19.4
+2025-02-20 16:45:03,231 INFO    MainThread:3232892 [wandb_setup.py:_flush():68] Configure stats pid to 3232892
+2025-02-20 16:45:03,231 INFO    MainThread:3232892 [wandb_setup.py:_flush():68] Loading settings from /home/vmuser/.config/wandb/settings
+2025-02-20 16:45:03,231 INFO    MainThread:3232892 [wandb_setup.py:_flush():68] Loading settings from /home/vmuser/o1-competition-Japanese/wandb/settings
+2025-02-20 16:45:03,231 INFO    MainThread:3232892 [wandb_setup.py:_flush():68] Loading settings from environment variables
+2025-02-20 16:45:03,231 INFO    MainThread:3232892 [wandb_init.py:setup_run_log_directory():624] Logging user logs to ./train_logs/sft_stage1/wandb/run-20250220_164503-fv5lwjgv/logs/debug.log
+2025-02-20 16:45:03,231 INFO    MainThread:3232892 [wandb_init.py:setup_run_log_directory():625] Logging internal logs to ./train_logs/sft_stage1/wandb/run-20250220_164503-fv5lwjgv/logs/debug-internal.log
+2025-02-20 16:45:03,231 INFO    MainThread:3232892 [wandb_init.py:init():743] calling init triggers
+2025-02-20 16:45:03,231 INFO    MainThread:3232892 [wandb_init.py:init():748] wandb.init called with sweep_config: {}
+config: {'experiment_name': 'sft_stage1', 'model_path': 'Qwen/Qwen2.5-7B-Instruct', 'data_path': 'data/stage1/medical_o1_sft.json', 'output_dir': '/datadrive/muto/ckpts/sft_stage1', 'max_ckpts': 2, 'log_dir': './train_logs/sft_stage1', 'max_seq_len': 8192, 'gradient_checkpointing': False, 'gradient_accumulation_steps': 8, 'train_bsz_per_gpu': 2, 'weight_decay': 0.1, 'learning_rate': 5e-06, 'warmup_rates': 0.05, 'n_epochs': 3, 'seed': 42}
+2025-02-20 16:45:03,231 INFO    MainThread:3232892 [wandb_init.py:init():776] starting backend
+2025-02-20 16:45:03,441 INFO    MainThread:3232892 [wandb_init.py:init():780] sending inform_init request
+2025-02-20 16:45:03,445 INFO    MainThread:3232892 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-02-20 16:45:03,446 INFO    MainThread:3232892 [wandb_init.py:init():795] backend started and connected
+2025-02-20 16:45:03,447 INFO    MainThread:3232892 [wandb_init.py:init():888] updated telemetry
+2025-02-20 16:45:03,450 INFO    MainThread:3232892 [wandb_init.py:init():915] communicating run to backend with 90.0 second timeout
+2025-02-20 16:45:04,042 INFO    MainThread:3232892 [wandb_init.py:init():967] starting run threads in backend
+2025-02-20 16:45:04,106 INFO    MainThread:3232892 [wandb_run.py:_console_start():2409] atexit reg
+2025-02-20 16:45:04,106 INFO    MainThread:3232892 [wandb_run.py:_redirect():2259] redirect: wrap_raw
+2025-02-20 16:45:04,106 INFO    MainThread:3232892 [wandb_run.py:_redirect():2324] Wrapping output streams.
+2025-02-20 16:45:04,106 INFO    MainThread:3232892 [wandb_run.py:_redirect():2349] Redirects installed.
+2025-02-20 16:45:04,110 INFO    MainThread:3232892 [wandb_init.py:init():1009] run started, returning control to user process

@@ -1,0 +1,6 @@
+{"time":"2025-02-20T16:50:25.361335662+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.4","symlink path":"train_logs/sft_stage1/wandb/run-20250220_165025-ny63zmk3/logs/debug-core.log"}
+{"time":"2025-02-20T16:50:25.568567035+09:00","level":"INFO","msg":"created new stream","id":"ny63zmk3"}
+{"time":"2025-02-20T16:50:25.569420781+09:00","level":"INFO","msg":"handler: started","stream_id":"ny63zmk3"}
+{"time":"2025-02-20T16:50:25.569460094+09:00","level":"INFO","msg":"stream: started","id":"ny63zmk3"}
+{"time":"2025-02-20T16:50:25.569529287+09:00","level":"INFO","msg":"sender: started","stream_id":"ny63zmk3"}
+{"time":"2025-02-20T16:50:25.569548285+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"ny63zmk3"}

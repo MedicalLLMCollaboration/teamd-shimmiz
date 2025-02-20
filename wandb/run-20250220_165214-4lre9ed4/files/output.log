@@ -1,0 +1,343 @@
+args:
+Namespace(experiment_name='sft_stage1', model_path='Qwen/Qwen2.5-7B-Instruct', data_path='data/stage1/medical_o1_sft.json', output_dir='/datadrive/muto/ckpts/sft_stage1', max_ckpts=2, log_dir='./train_logs/sft_stage1', max_seq_len=8192, gradient_checkpointing=False, gradient_accumulation_steps=8, train_bsz_per_gpu=2, weight_decay=0.1, learning_rate=5e-06, warmup_rates=0.05, n_epochs=3, seed=42)
+Downloading shards: 100%|█████████████████| 4/4 [06:14<00:00, 93.58s/it]
+[2025-02-20 16:58:35,370] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 8
+[2025-02-20 16:58:41,066] [INFO] [partition_parameters.py:348:__exit__] finished initializing model - num_params = 339, num_elems = 7.62B
+Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.15it/s]
+过滤掉 25371 25371
+gradient_accumulation_steps:8 data_path:data/stage1/medical_o1_sft.json lr:5e-06 num_training_steps:594
+[2025-02-20 16:58:45,433] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed info: version=0.15.4, git-hash=unknown, git-branch=unknown
+[2025-02-20 16:58:45,433] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 8
+[2025-02-20 16:58:45,439] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2025-02-20 16:58:45,440] [INFO] [logging.py:128:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2025-02-20 16:58:45,440] [INFO] [logging.py:128:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2025-02-20 16:58:45,448] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed Basic Optimizer = AdamW
+[2025-02-20 16:58:45,448] [INFO] [utils.py:59:is_zero_supported_optimizer] Checking ZeRO support for optimizer=AdamW type=<class 'torch.optim.adamw.AdamW'>
+[2025-02-20 16:58:45,448] [INFO] [logging.py:128:log_dist] [Rank 0] Creating fp16 ZeRO stage 3 optimizer, MiCS is enabled False, Hierarchical params gather False
+[2025-02-20 16:58:45,448] [INFO] [logging.py:128:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 3 optimizer
+[2025-02-20 16:58:45,600] [INFO] [utils.py:781:see_memory_usage] Stage 3 initialize beginning
+[2025-02-20 16:58:45,601] [INFO] [utils.py:782:see_memory_usage] MA 1.77 GB         Max_MA 4.69 GB         CA 5.11 GB         Max_CA 5 GB
+[2025-02-20 16:58:45,601] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 25.11 GB, percent = 1.3%
+[2025-02-20 16:58:45,602] [INFO] [stage3.py:166:__init__] Reduce bucket size 500000000
+[2025-02-20 16:58:45,602] [INFO] [stage3.py:167:__init__] Prefetch bucket size 50000000
+[2025-02-20 16:58:45,701] [INFO] [utils.py:781:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2025-02-20 16:58:45,702] [INFO] [utils.py:782:see_memory_usage] MA 1.77 GB         Max_MA 1.77 GB         CA 5.11 GB         Max_CA 5 GB
+[2025-02-20 16:58:45,702] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 24.85 GB, percent = 1.3%
+Parameter Offload: Total persistent parameters: 333312 in 141 params
+[2025-02-20 16:58:45,804] [INFO] [utils.py:781:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2025-02-20 16:58:45,805] [INFO] [utils.py:782:see_memory_usage] MA 1.77 GB         Max_MA 1.77 GB         CA 5.11 GB         Max_CA 5 GB
+[2025-02-20 16:58:45,805] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 24.85 GB, percent = 1.3%
+[2025-02-20 16:58:45,893] [INFO] [utils.py:781:see_memory_usage] Before creating fp16 partitions
+[2025-02-20 16:58:45,894] [INFO] [utils.py:782:see_memory_usage] MA 1.77 GB         Max_MA 1.77 GB         CA 5.11 GB         Max_CA 5 GB
+[2025-02-20 16:58:45,894] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 24.85 GB, percent = 1.3%
+[2025-02-20 16:58:47,091] [INFO] [utils.py:781:see_memory_usage] After creating fp16 partitions: 2
+[2025-02-20 16:58:47,092] [INFO] [utils.py:782:see_memory_usage] MA 1.77 GB         Max_MA 1.77 GB         CA 1.78 GB         Max_CA 5 GB
+[2025-02-20 16:58:47,092] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 24.85 GB, percent = 1.3%
+[2025-02-20 16:58:47,184] [INFO] [utils.py:781:see_memory_usage] Before creating fp32 partitions
+[2025-02-20 16:58:47,184] [INFO] [utils.py:782:see_memory_usage] MA 1.77 GB         Max_MA 1.77 GB         CA 1.78 GB         Max_CA 2 GB
+[2025-02-20 16:58:47,185] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 24.85 GB, percent = 1.3%
+[2025-02-20 16:58:47,277] [INFO] [utils.py:781:see_memory_usage] After creating fp32 partitions
+[2025-02-20 16:58:47,278] [INFO] [utils.py:782:see_memory_usage] MA 5.32 GB         Max_MA 7.09 GB         CA 7.1 GB         Max_CA 7 GB
+[2025-02-20 16:58:47,278] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 24.86 GB, percent = 1.3%
+[2025-02-20 16:58:47,369] [INFO] [utils.py:781:see_memory_usage] Before initializing optimizer states
+[2025-02-20 16:58:47,369] [INFO] [utils.py:782:see_memory_usage] MA 5.32 GB         Max_MA 5.32 GB         CA 7.1 GB         Max_CA 7 GB
+[2025-02-20 16:58:47,370] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 24.86 GB, percent = 1.3%
+[2025-02-20 16:58:47,459] [INFO] [utils.py:781:see_memory_usage] After initializing optimizer states
+[2025-02-20 16:58:47,460] [INFO] [utils.py:782:see_memory_usage] MA 5.32 GB         Max_MA 8.87 GB         CA 10.64 GB         Max_CA 11 GB
+[2025-02-20 16:58:47,460] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 24.86 GB, percent = 1.3%
+[2025-02-20 16:58:47,460] [INFO] [stage3.py:521:_setup_for_real_optimizer] optimizer state initialized
+[2025-02-20 16:58:47,638] [INFO] [utils.py:781:see_memory_usage] After initializing ZeRO optimizer
+[2025-02-20 16:58:47,639] [INFO] [utils.py:782:see_memory_usage] MA 8.02 GB         Max_MA 10.06 GB         CA 11.66 GB         Max_CA 12 GB
+[2025-02-20 16:58:47,639] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 24.86 GB, percent = 1.3%
+[2025-02-20 16:58:47,639] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed Final Optimizer = DeepSpeedZeroOptimizer_Stage3
+[2025-02-20 16:58:47,640] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed using configured LR scheduler = None
+[2025-02-20 16:58:47,640] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2025-02-20 16:58:47,640] [INFO] [logging.py:128:log_dist] [Rank 0] step=0, skipped=0, lr=[0.0, 0.0], mom=[(0.9, 0.999), (0.9, 0.999)]
+[2025-02-20 16:58:47,640] [INFO] [config.py:999:print] DeepSpeedEngine configuration:
+[2025-02-20 16:58:47,641] [INFO] [config.py:1003:print]   activation_checkpointing_config  {
+    "partition_activations": false,
+    "contiguous_memory_optimization": false,
+    "cpu_checkpointing": false,
+    "number_checkpoints": null,
+    "synchronize_checkpoint_boundary": false,
+    "profile": false
+}
+[2025-02-20 16:58:47,641] [INFO] [config.py:1003:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True, 'use_gds': False}
+[2025-02-20 16:58:47,641] [INFO] [config.py:1003:print]   amp_enabled .................. False
+[2025-02-20 16:58:47,641] [INFO] [config.py:1003:print]   amp_params ................... False
+[2025-02-20 16:58:47,641] [INFO] [config.py:1003:print]   autotuning_config ............ {
+    "enabled": false,
+    "start_step": null,
+    "end_step": null,
+    "metric_path": null,
+    "arg_mappings": null,
+    "metric": "throughput",
+    "model_info": null,
+    "results_dir": "autotuning_results",
+    "exps_dir": "autotuning_exps",
+    "overwrite": true,
+    "fast": true,
+    "start_profile_step": 3,
+    "end_profile_step": 5,
+    "tuner_type": "gridsearch",
+    "tuner_early_stopping": 5,
+    "tuner_num_trials": 50,
+    "model_info_path": null,
+    "mp_size": 1,
+    "max_train_batch_size": null,
+    "min_train_batch_size": 1,
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03,
+    "min_train_micro_batch_size_per_gpu": 1,
+    "num_tuning_micro_batch_sizes": 3
+}
+[2025-02-20 16:58:47,641] [INFO] [config.py:1003:print]   bfloat16_enabled ............. True
+[2025-02-20 16:58:47,641] [INFO] [config.py:1003:print]   bfloat16_immediate_grad_update  False
+[2025-02-20 16:58:47,641] [INFO] [config.py:1003:print]   checkpoint_parallel_write_pipeline  False
+[2025-02-20 16:58:47,641] [INFO] [config.py:1003:print]   checkpoint_tag_validation_enabled  True
+[2025-02-20 16:58:47,641] [INFO] [config.py:1003:print]   checkpoint_tag_validation_fail  False
+[2025-02-20 16:58:47,641] [INFO] [config.py:1003:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x14ef39f82800>
+[2025-02-20 16:58:47,641] [INFO] [config.py:1003:print]   communication_data_type ...... None
+[2025-02-20 16:58:47,641] [INFO] [config.py:1003:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2025-02-20 16:58:47,641] [INFO] [config.py:1003:print]   curriculum_enabled_legacy .... False
+[2025-02-20 16:58:47,641] [INFO] [config.py:1003:print]   curriculum_params_legacy ..... False
+[2025-02-20 16:58:47,641] [INFO] [config.py:1003:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2025-02-20 16:58:47,641] [INFO] [config.py:1003:print]   data_efficiency_enabled ...... False
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   dataloader_drop_last ......... False
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   disable_allgather ............ False
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   dump_state ................... False
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   dynamic_loss_scale_args ...... None
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   eigenvalue_enabled ........... False
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   eigenvalue_gas_boundary_resolution  1
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   eigenvalue_layer_num ......... 0
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   eigenvalue_max_iter .......... 100
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   eigenvalue_stability ......... 1e-06
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   eigenvalue_tol ............... 0.01
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   eigenvalue_verbose ........... False
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   elasticity_enabled ........... False
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   flops_profiler_config ........ {
+    "enabled": false,
+    "recompute_fwd_factor": 0.0,
+    "profile_step": 1,
+    "module_depth": -1,
+    "top_modules": 1,
+    "detailed": true,
+    "output_file": null
+}
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   fp16_auto_cast ............... None
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   fp16_enabled ................. False
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   fp16_master_weights_and_gradients  False
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   global_rank .................. 0
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   grad_accum_dtype ............. None
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   gradient_accumulation_steps .. 8
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   gradient_clipping ............ 1.0
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   gradient_predivide_factor .... 1.0
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   graph_harvesting ............. False
+[2025-02-20 16:58:47,642] [INFO] [config.py:1003:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   initial_dynamic_scale ........ 1
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   load_universal_checkpoint .... False
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   loss_scale ................... 1.0
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   memory_breakdown ............. False
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   mics_hierarchial_params_gather  False
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   mics_shard_size .............. -1
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') comet=CometConfig(enabled=False, samples_log_interval=100, project=None, workspace=None, api_key=None, experiment_name=None, experiment_key=None, online=None, mode=None) wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName')
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   nebula_config ................ {
+    "enabled": false,
+    "persistent_storage_path": null,
+    "persistent_time_interval": 100,
+    "num_of_version_in_retention": 2,
+    "enable_nebula_load": true,
+    "load_path": null
+}
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   optimizer_legacy_fusion ...... False
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   optimizer_name ............... None
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   optimizer_params ............. None
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   pld_enabled .................. False
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   pld_params ................... False
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   prescale_gradients ........... False
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   scheduler_name ............... None
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   scheduler_params ............. None
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   seq_parallel_communication_data_type  torch.float32
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   sparse_attention ............. None
+[2025-02-20 16:58:47,643] [INFO] [config.py:1003:print]   sparse_gradients_enabled ..... False
+[2025-02-20 16:58:47,644] [INFO] [config.py:1003:print]   steps_per_print .............. inf
+[2025-02-20 16:58:47,644] [INFO] [config.py:1003:print]   timers_config ................ enabled=True synchronized=True
+[2025-02-20 16:58:47,644] [INFO] [config.py:1003:print]   train_batch_size ............. 128
+[2025-02-20 16:58:47,644] [INFO] [config.py:1003:print]   train_micro_batch_size_per_gpu  2
+[2025-02-20 16:58:47,644] [INFO] [config.py:1003:print]   use_data_before_expert_parallel_  False
+[2025-02-20 16:58:47,644] [INFO] [config.py:1003:print]   use_node_local_storage ....... False
+[2025-02-20 16:58:47,644] [INFO] [config.py:1003:print]   wall_clock_breakdown ......... False
+[2025-02-20 16:58:47,644] [INFO] [config.py:1003:print]   weight_quantization_config ... None
+[2025-02-20 16:58:47,644] [INFO] [config.py:1003:print]   world_size ................... 8
+[2025-02-20 16:58:47,644] [INFO] [config.py:1003:print]   zero_allow_untested_optimizer  True
+[2025-02-20 16:58:47,644] [INFO] [config.py:1003:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500000000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='none', nvme_path=None, buffer_count=5, buffer_size=100000000, max_in_cpu=1000000000, pin_memory=False) offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='none', nvme_path=None, buffer_count=4, pin_memory=False, pipeline_read=False, pipeline_write=False, fast_init=False, ratio=1.0) sub_group_size=1000000000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50000000 param_persistence_threshold=100000 model_persistence_threshold=9223372036854775807 max_live_parameters=1000000000 max_reuse_distance=1000000000 gather_16bit_weights_on_model_save=True use_all_reduce_for_fetch_params=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2025-02-20 16:58:47,644] [INFO] [config.py:1003:print]   zero_enabled ................. True
+[2025-02-20 16:58:47,644] [INFO] [config.py:1003:print]   zero_force_ds_cpu_optimizer .. True
+[2025-02-20 16:58:47,644] [INFO] [config.py:1003:print]   zero_optimization_stage ...... 3
+[2025-02-20 16:58:47,644] [INFO] [config.py:989:print_user_config]   json = {
+    "train_batch_size": 128,
+    "train_micro_batch_size_per_gpu": 2,
+    "gradient_accumulation_steps": 8,
+    "zero_optimization": {
+        "stage": 3,
+        "offload_optimizer": {
+            "device": "none",
+            "nvme_path": null
+        },
+        "offload_param": {
+            "device": "none",
+            "nvme_path": null
+        },
+        "stage3_gather_16bit_weights_on_model_save": true
+    },
+    "gradient_clipping": 1.0,
+    "steps_per_print": inf,
+    "bf16": {
+        "enabled": true
+    },
+    "fp16": {
+        "enabled": false
+    },
+    "zero_allow_untested_optimizer": true
+}
+{'train_batch_size': 128, 'train_micro_batch_size_per_gpu': 2, 'gradient_accumulation_steps': 8, 'zero_optimization': {'stage': 3, 'offload_optimizer': {'device': 'none', 'nvme_path': None}, 'offload_param': {'device': 'none', 'nvme_path': None}, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_clipping': 1.0, 'steps_per_print': inf, 'bf16': {'enabled': True}, 'fp16': {'enabled': False}, 'zero_allow_untested_optimizer': True}
+  0%|                                          | 0/1585 [00:00<?, ?it/s]
+input_ids <|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+What condition is indicated by an asymptomatic swelling in the body of the mandible in a 36-year-old male, characterized by radiographic features of radiolucency with radiopaque flecks?<|im_end|>
+<|im_start|>assistant
+## Thinking
+
+Alright, let's think through this. So, we have a 36-year-old guy with a swelling in his mandible that doesn't hurt. That's interesting because if it's not causing pain, it's probably not something aggressively malignant, so maybe it's benign.
+
+The mandible is a pretty common site for lots of dental-related tumors or cysts. These swellings can often be odontogenic, which means they're related to tooth development. That makes sense since we're in the jaw area.
+
+Now, let's consider the radiographic features. It shows radiolucency with some radiopaque flecks. That sounds quite distinctive. Radiolucency usually means there's some sort of lesion present, and the radiopaque flecks suggest there's something denser mixed in.
+
+The pattern of finding these 'flecks' within an otherwise darker area is kind of specific. Hmm, certain lesions come to mind. Ameloblastoma maybe, but hold on, I don't remember it having radiopaque flecks commonly.
+
+Wait a second, calcifying epithelial odontogenic tumor, also known as Pindborg tumor, fits that description pretty well. It has those calcified areas within a radiolucent region, kind of like what we're seeing here.
+
+The age of the patient also makes sense. He's in his thirties, which is a typical age range for this type of tumor to present. It's more common in adults, so that lines up fine.
+
+Yeah, all things considered, a calcifying epithelial odontogenic tumor seems to be the most fitting explanation based on these features. The pieces all align: the location, the radiographic appearance, and the patient's age. I'm pretty confident that's what's going on here.
+
+## Final Response
+
+The condition indicated by an asymptomatic swelling in the body of the mandible in a 36-year-old male, characterized by radiographic features of radiolucency with radiopaque flecks, is most likely a calcifying epithelial odontogenic tumor, also known as a Pindborg tumor. This type of tumor typically presents with these specific radiographic features and occurs in the age group of the patient described.<|im_end|>
+<|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|>
+labels !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!## Thinking
+
+Alright, let's think through this. So, we have a 36-year-old guy with a swelling in his mandible that doesn't hurt. That's interesting because if it's not causing pain, it's probably not something aggressively malignant, so maybe it's benign.
+
+The mandible is a pretty common site for lots of dental-related tumors or cysts. These swellings can often be odontogenic, which means they're related to tooth development. That makes sense since we're in the jaw area.
+
+Now, let's consider the radiographic features. It shows radiolucency with some radiopaque flecks. That sounds quite distinctive. Radiolucency usually means there's some sort of lesion present, and the radiopaque flecks suggest there's something denser mixed in.
+
+The pattern of finding these 'flecks' within an otherwise darker area is kind of specific. Hmm, certain lesions come to mind. Ameloblastoma maybe, but hold on, I don't remember it having radiopaque flecks commonly.
+
+Wait a second, calcifying epithelial odontogenic tumor, also known as Pindborg tumor, fits that description pretty well. It has those calcified areas within a radiolucent region, kind of like what we're seeing here.
+
+The age of the patient also makes sense. He's in his thirties, which is a typical age range for this type of tumor to present. It's more common in adults, so that lines up fine.
+
+Yeah, all things considered, a calcifying epithelial odontogenic tumor seems to be the most fitting explanation based on these features. The pieces all align: the location, the radiographic appearance, and the patient's age. I'm pretty confident that's what's going on here.
+
+## Final Response
+
+The condition indicated by an asymptomatic swelling in the body of the mandible in a 36-year-old male, characterized by radiographic features of radiolucency with radiopaque flecks, is most likely a calcifying epithelial odontogenic tumor, also known as a Pindborg tumor. This type of tumor typically presents with these specific radiographic features and occurs in the age group of the patient described.<|im_end|>
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+input_ids <|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+On the desk, there is a turquoise pencil, a blue pen, a mauve sheet of paper, a grey paperclip, and a pink textbook. What color is the sheet of paper?
+Options:
+(A) red
+(B) orange
+(C) yellow
+(D) green
+(E) blue
+(F) brown
+(G) magenta
+(H) fuchsia
+(I) mauve
+(J) teal
+(K) turquoise
+(L) burgundy
+(M) silver
+(N) gold
+(O) black
+(P) grey
+(Q) purple
+(R) pink<|im_end|>
+<|im_start|>assistant
+## Thinking
+
+Okay, so let's figure out the color of the sheet of paper on the desk. I remember that the original description said something specific about this piece of paper. Hmm, thinking back, it mentioned quite a few different items, each with a color. There was a pencil that's turquoise, a pen that's blue, and a sheet of paper that was—what was it? Mauve! That's right, it was a mauve sheet of paper.
+
+Now, what exactly is mauve? I remember it's a type of purple. Kind of a pale and soothing shade if you ask me.
+
+Alright, let's match this with the options given. Luckily, they actually have 'mauve' listed right there as option (I). Sometimes these things can get tricky with all kinds of similar colors, but not this time.
+
+Just to be sure—let's verify once more: the sheet, yes, is definitely 'mauve,' and that fits perfectly with option (I) mauve. So, that's it! It's definitely 'mauve.'
+
+## Final Response
+
+The color of the sheet of paper is mauve, which corresponds to option (I) mauve.<|im_end|>
+
+labels !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!## Thinking
+
+Okay, so let's figure out the color of the sheet of paper on the desk. I remember that the original description said something specific about this piece of paper. Hmm, thinking back, it mentioned quite a few different items, each with a color. There was a pencil that's turquoise, a pen that's blue, and a sheet of paper that was—what was it? Mauve! That's right, it was a mauve sheet of paper.
+
+Now, what exactly is mauve? I remember it's a type of purple. Kind of a pale and soothing shade if you ask me.
+
+Alright, let's match this with the options given. Luckily, they actually have 'mauve' listed right there as option (I). Sometimes these things can get tricky with all kinds of similar colors, but not this time.
+
+Just to be sure—let's verify once more: the sheet, yes, is definitely 'mauve,' and that fits perfectly with option (I) mauve. So, that's it! It's definitely 'mauve.'
+
+## Final Response
+
+The color of the sheet of paper is mauve, which corresponds to option (I) mauve.<|im_end|>
+
+input_ids <|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+Following a fracture of the humerus, which of the following is responsible for producing the majority of the new bone that will reunite the two fragments?
+A. Cancellous bone
+B. Cailage
+C. Compact bone
+D. Periosteum<|im_end|>
+<|im_start|>assistant
+## Thinking
+
+Alright, let's think about what happens when a bone, like the humerus, breaks. At first, the body needs to bring the broken pieces back together, which means new bone needs to grow in between to form a bridge over the break. This new growth is called a callus. At the start, this callus is made up of cartilage because this is how the body begins to fix things—it’s like using temporary scaffolding. But over time, this cartilage is replaced with actual bone.
+
+Now, where does this new bone come from? Well, bones have this covering called the periosteum. It's like a shell that has a lot of cells ready to make new bone. These are called osteoblasts; think of them as the builders specifically meant for bone.
+
+Okay, let's go over the choices. Cancellous bone and compact bone are both types of bone you already have, so they aren't really what's first back to work building new bone right there at the break. And cartilage forms at the start but doesn't stay because it turns into bone later.
+
+When it comes down to it, the periosteum is what really kicks into gear here because it’s packed with those bone-building cells. They’re super important for getting solid new bone to grow after a fracture. I mean, that makes so much sense, right? Without the periosteum, you'd lack a key player in the healing game. So, the periosteum doing all the hard work feels like the right answer.
+
+## Final Response
+
+The majority of new bone that reunites the fragments of a broken humerus is produced by the periosteum. This is because the periosteum is rich in osteoblasts, the cells responsible for producing new bone during the healing process after a fracture. So, the correct answer is D. Periosteum.<|im_end|>
+<|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|><|im_end|>
+labels !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!## Thinking
+
+Alright, let's think about what happens when a bone, like the humerus, breaks. At first, the body needs to bring the broken pieces back together, which means new bone needs to grow in between to form a bridge over the break. This new growth is called a callus. At the start, this callus is made up of cartilage because this is how the body begins to fix things—it’s like using temporary scaffolding. But over time, this cartilage is replaced with actual bone.
+
+Now, where does this new bone come from? Well, bones have this covering called the periosteum. It's like a shell that has a lot of cells ready to make new bone. These are called osteoblasts; think of them as the builders specifically meant for bone.
+
+Okay, let's go over the choices. Cancellous bone and compact bone are both types of bone you already have, so they aren't really what's first back to work building new bone right there at the break. And cartilage forms at the start but doesn't stay because it turns into bone later.
+
+When it comes down to it, the periosteum is what really kicks into gear here because it’s packed with those bone-building cells. They’re super important for getting solid new bone to grow after a fracture. I mean, that makes so much sense, right? Without the periosteum, you'd lack a key player in the healing game. So, the periosteum doing all the hard work feels like the right answer.
+
+## Final Response
+
+The majority of new bone that reunites the fragments of a broken humerus is produced by the periosteum. This is because the periosteum is rich in osteoblasts, the cells responsible for producing new bone during the healing process after a fracture. So, the correct answer is D. Periosteum.<|im_end|>
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+checkpoint checkpoint-0-1585 is saved...
+100%|█| 1585/1585 [12:18<00:00,  2.15it/s, acc=0.667, current_step=1584,
+checkpoint checkpoint-1-3170 is saved...
+ 41%|▍| 653/1585 [05:04<06:56,  2.24it/s, acc=0.684, current_step=652, e

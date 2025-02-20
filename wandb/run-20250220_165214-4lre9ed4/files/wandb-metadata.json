@@ -1,0 +1,92 @@
+{
+  "os": "Linux-5.15.0-1074-azure-x86_64-with-glibc2.35",
+  "python": "CPython 3.10.12",
+  "startedAt": "2025-02-20T07:52:14.474379Z",
+  "args": [
+    "--model_path",
+    "Qwen/Qwen2.5-7B-Instruct",
+    "--data_path",
+    "data/stage1/medical_o1_sft.json",
+    "--output_dir",
+    "/datadrive/muto/ckpts"
+  ],
+  "program": "/home/vmuser/o1-competition-Japanese/SFT_stage1.py",
+  "codePath": "SFT_stage1.py",
+  "git": {
+    "remote": "https://github.com/MedicalLLMCollaboration/o1-competition-Japanese",
+    "commit": "89ab2e65e5ba783576794ed8a6f1d9d6fad82f29"
+  },
+  "email": "hi2lu3@gmail.com",
+  "root": "./train_logs/sft_stage1",
+  "host": "BicepVm-HPC2-3",
+  "executable": "/home/vmuser/o1-competition-Japanese/.venv/bin/python",
+  "codePathLocal": "SFT_stage1.py",
+  "cpu_count": 96,
+  "cpu_count_logical": 96,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "gpu_count": 8,
+  "disk": {
+    "/": {
+      "total": "66404147200",
+      "used": "39888089088"
+    }
+  },
+  "memory": {
+    "total": "2008083091456"
+  },
+  "cpu": {
+    "count": 96,
+    "countLogical": 96
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA H100 80GB HBM3",
+      "memoryTotal": "85520809984",
+      "cudaCores": 16896,
+      "architecture": "Hopper"
+    },
+    {
+      "name": "NVIDIA H100 80GB HBM3",
+      "memoryTotal": "85520809984",
+      "cudaCores": 16896,
+      "architecture": "Hopper"
+    },
+    {
+      "name": "NVIDIA H100 80GB HBM3",
+      "memoryTotal": "85520809984",
+      "cudaCores": 16896,
+      "architecture": "Hopper"
+    },
+    {
+      "name": "NVIDIA H100 80GB HBM3",
+      "memoryTotal": "85520809984",
+      "cudaCores": 16896,
+      "architecture": "Hopper"
+    },
+    {
+      "name": "NVIDIA H100 80GB HBM3",
+      "memoryTotal": "85520809984",
+      "cudaCores": 16896,
+      "architecture": "Hopper"
+    },
+    {
+      "name": "NVIDIA H100 80GB HBM3",
+      "memoryTotal": "85520809984",
+      "cudaCores": 16896,
+      "architecture": "Hopper"
+    },
+    {
+      "name": "NVIDIA H100 80GB HBM3",
+      "memoryTotal": "85520809984",
+      "cudaCores": 16896,
+      "architecture": "Hopper"
+    },
+    {
+      "name": "NVIDIA H100 80GB HBM3",
+      "memoryTotal": "85520809984",
+      "cudaCores": 16896,
+      "architecture": "Hopper"
+    }
+  ],
+  "cudaVersion": "12.6"
+}
